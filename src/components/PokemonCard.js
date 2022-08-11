@@ -1,6 +1,7 @@
 import React from 'react';
+import DetailsModal from './DetailsModal';
 
-const PokemonCard = ({ pokemon, loading, infoPokemon }) => {
+const PokemonCard = ({ pokemon, loading, infoPokemon, pokeDex }) => {
   return (
     <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-72 my-20'>
       {loading ? (
@@ -18,10 +19,13 @@ const PokemonCard = ({ pokemon, loading, infoPokemon }) => {
                   <h2>{item.id}</h2>
                   <p>If a dog chews shoes whose shoes does he choose?</p>
                   <div className='card-actions'>
-                    <button className='btn btn-primary'>Buy Now</button>
+                    <label for='my-modal-3' class='btn btn-primary modal-button'>
+                      Details
+                    </label>
                   </div>
                 </div>
               </div>
+              <DetailsModal data={pokeDex} />
             </>
           );
         })

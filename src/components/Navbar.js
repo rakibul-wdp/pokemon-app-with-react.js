@@ -11,6 +11,7 @@ const Navbar = () => {
   const [nextUrl, setNextUrl] = useState();
   const [prevUrl, setPrevUrl] = useState();
   const [pokeDex, setPokeDex] = useState();
+  console.log(pokeDex);
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
@@ -72,11 +73,11 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <PokemonCard pokemon={pokeData} loading={loading} infoPokemon={(poke) => setPokeDex(poke)} />
-      <div className=''>
+      <PokemonCard pokemon={pokeData} loading={loading} infoPokemon={(poke) => setPokeDex(poke)} data={pokeDex} />
+      <div className='text-center mb-10'>
         {prevUrl && (
           <button
-            className='btn'
+            className='btn btn-primary mr-1'
             onClick={() => {
               setPokeData([]);
               setUrl(prevUrl);
@@ -88,7 +89,7 @@ const Navbar = () => {
 
         {nextUrl && (
           <button
-            className='btn'
+            className='btn btn-primary ml-1'
             onClick={() => {
               setPokeData([]);
               setUrl(nextUrl);
